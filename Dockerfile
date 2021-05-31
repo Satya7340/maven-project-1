@@ -1,5 +1,6 @@
 FROM tomcat :8
 MAINTAINER Satyajeet
-COPY  webapp/target/webapp.war /usr/local/tomcat
+COPY  webapp/target/webapp/ /usr/local/tomcat/webapps
 EXPOSE 8080
+CMD['catalina.sh','run']
 
