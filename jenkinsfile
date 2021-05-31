@@ -14,6 +14,13 @@ stages
         {  sh 'mvn clean package'  } 
               }
     }
+   stage('docker build and Push')
+   {steps
+   {withDockerRegistry(credentialsId: 'Dockerhub', url: 'https://index.docker.io/v1') {
+    sh 'docker build -t satya7340/feb_maven_web:latest .'
+	sh 'docker images'
+	sh 'docker push satya7340/feb_maven_web:latest'
+}}}
 
 }
 
